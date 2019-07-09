@@ -1425,8 +1425,4 @@
        Can be hacked around, but it's not much required class... -->
   <remove-node path="/api/package[@name='java.util.concurrent']/class[@name='ConcurrentHashMap.KeySetView']" />
 
-  <!-- Animation class has both addAnimationListener and setAnimationListener.
-       They result in event name conflicts. So remove them for set~ method. -->
-  <attr api-since="29" path="/api/package[@name='android.view.animation']/class[@name='Animation']/method[@name='setAnimationListener']" name="eventName"></attr>
-
 </metadata>
