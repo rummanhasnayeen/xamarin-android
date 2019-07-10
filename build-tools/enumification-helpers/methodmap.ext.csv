@@ -1911,7 +1911,8 @@
 29, android.app, RemoteInput, getEditChoicesBeforeSending, return, Android.App.EditChoices
 29, android.app, Service, getForegroundServiceType, return, Android.App.ForegroundService
 29, android.app, Service, startForeground, foregroundServiceType, Android.App.ForegroundService
-29, android.app, WallpaperManager.OnColorsChangedListener, onColorsChanged, which, Android.App.WallpaperManagerFlags
+// Cannot change this at this state.
+// 27, android.app, WallpaperManager.OnColorsChangedListener, onColorsChanged, which, Android.App.WallpaperManagerFlags
 29, android.content, Context, bindIsolatedService, flags, Android.App.Bind
 29, android.content.pm, PackageInstaller.SessionInfo, getStagedSessionErrorCode, return, Android.Content.PM.StagedSession
 29, android.content.pm, PackageInstaller, installExistingPackage, installReason, Android.Content.PM.InstallReason
