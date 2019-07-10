@@ -221,7 +221,8 @@
 3, android.media,[Interface]MediaRecorder.OnInfoListener,onInfo,what,Android.Media.MediaRecorderInfo
 1, android.media,MediaPlayer,setAudioStreamType,streamtype,Android.Media.Stream
 1, android.media,MediaRecorder,setAudioEncoder,audio_encoder,Android.Media.AudioEncoder
-1, android.media,MediaRecorder,setAudioSource,audio_source,Android.Media.AudioSource
+// On Api level 29, the argument audio_source was renamed from audio_source to audioSource
+1, android.media,MediaRecorder,setAudioSource,audioSource,Android.Media.AudioSource
 1, android.media,MediaRecorder,setOutputFormat,output_format,Android.Media.OutputFormat
 1, android.media,MediaRecorder,setVideoEncoder,video_encoder,Android.Media.VideoEncoder
 1, android.media,MediaRecorder,setVideoSource,video_source,Android.Media.VideoSource

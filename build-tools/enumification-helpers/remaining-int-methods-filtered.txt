@@ -42,6 +42,9 @@
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.App.Slices.SliceSpec.cs: public unsafe SliceSpec (string type, int revision)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.App.Slices.SliceSpec.cs: public unsafe int Revision {
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.App.Usage.UsageEvents.cs: public unsafe int AppStandbyBucket {
+../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.App.WallpaperManager.cs: public ColorsChangedEventArgs (Android.App.WallpaperColors colors, int which)
+../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.App.WallpaperManager.cs: public unsafe void OnColorsChanged (Android.App.WallpaperColors colors, int which)
+../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.App.WallpaperManager.cs: public void OnColorsChanged (Android.App.WallpaperColors colors, int which)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.App.WallpaperManager.cs: public virtual unsafe Android.App.WallpaperColors GetWallpaperColors (int which)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.App.WallpaperManager.cs: public virtual unsafe int SetBitmap (Android.Graphics.Bitmap fullImage, Android.Graphics.Rect visibleCropHint, bool allowBackup)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.App.WallpaperManager.cs: public virtual unsafe int SetStream (System.IO.Stream bitmapData, Android.Graphics.Rect visibleCropHint, bool allowBackup)
@@ -518,6 +521,10 @@
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Net.Wifi.Aware.WifiAwareNetworkSpecifier.cs: public unsafe Android.Net.Wifi.Aware.WifiAwareNetworkSpecifier.Builder SetTransportProtocol (int transportProtocol)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Net.Wifi.Hotspot2.Pps.Credential.cs: public unsafe int EapType {
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Net.Wifi.Hotspot2.Pps.Credential.cs: public unsafe int EapType {
+../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Net.Wifi.P2p.WifiP2pManager.cs: public DiscoveryStateEventArgs (int state)
+../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Net.Wifi.P2p.WifiP2pManager.cs: public int State {
+../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Net.Wifi.P2p.WifiP2pManager.cs: public unsafe void OnDiscoveryStateAvailable (int state)
+../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Net.Wifi.P2p.WifiP2pManager.cs: public void OnDiscoveryStateAvailable (int state)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Net.Wifi.Rtt.RangingResult.cs: public unsafe int DistanceMm {
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Net.Wifi.Rtt.RangingResult.cs: public unsafe int DistanceStdDevMm {
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Net.Wifi.Rtt.ResponderLocation.cs: public unsafe int LciVersion {
@@ -551,6 +558,7 @@
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.OS.Health.HealthStats.cs: public virtual unsafe long GetMeasurement (int key)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.OS.Health.HealthStats.cs: public virtual unsafe long GetTimerTime (int key)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.OS.Health.SystemHealthManager.cs: public virtual unsafe Android.OS.Health.HealthStats[] TakeUidSnapshots (int[] uids)
+../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.OS.MessageQueue.cs: public virtual unsafe void AddOnFileDescriptorEventListener (Java.IO.FileDescriptor fd, int events, Android.OS.MessageQueue.IOnFileDescriptorEventListener listener)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.OS.Parcel.cs: public unsafe void WriteParcelableList (System.Collections.IList val, int flags)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.OS.Parcel.cs: public unsafe void WriteTypedArrayMap (Android.Util.ArrayMap val, int parcelableFlags)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.OS.Parcel.cs: public unsafe void WriteTypedSparseArray (Android.Util.SparseArray val, int parcelableFlags)
@@ -650,6 +658,7 @@
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Telephony.Mbms.StreamingServiceCallback.cs: public virtual unsafe void OnError (int errorCode, string message)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Telephony.NetworkScanRequest.cs: public unsafe int SearchPeriodicity {
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Telephony.RadioAccessSpecifier.cs: public unsafe RadioAccessSpecifier (int ran, int[] bands, int[] channels)
+../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Telephony.RadioAccessSpecifier.cs: public unsafe int RadioAccessNetwork {
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Telephony.RadioAccessSpecifier.cs: public unsafe int[] GetBands ()
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Telephony.RadioAccessSpecifier.cs: public unsafe int[] GetChannels ()
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Telephony.ServiceState.cs: public virtual unsafe int ChannelNumber {
@@ -756,6 +765,8 @@
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Views.View.cs: public virtual unsafe int[] GetAttributeResolutionStack (tribute)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Views.View.cs: public virtual unsafe void GetLocationInWindow (int[] outLocation)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Views.View.cs: public virtual unsafe void GetLocationOnScreen (int[] outLocation)
+../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Views.View.cs: public virtual unsafe void SetScrollIndicators (int indicators)
+../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Views.View.cs: public virtual unsafe void SetScrollIndicators (int indicators, int mask)
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Views.ViewDebug.cs: new public abstract int Equals ();
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Views.ViewDebug.cs: public abstract int From ();
 ../../src/Mono.Android/obj/Debug/android-XXX/mcw/Android.Views.ViewDebug.cs: public abstract int Mask ();
