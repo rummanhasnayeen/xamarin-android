@@ -1425,4 +1425,11 @@
        Can be hacked around, but it's not much required class... -->
   <remove-node path="/api/package[@name='java.util.concurrent']/class[@name='ConcurrentHashMap.KeySetView']" />
 
+  <!-- API Level 29 -->
+  <!-- Google has removed SpannableStringInternal class so we need to fix it by adding it back -->
+  <attr path="/api/package[@name='android.text']/class[@name='SpannableString']" name="extends">android.text.SpannableStringInternal</attr>
+  <attr path="/api/package[@name='android.text']/class[@name='SpannableString']" name="extends-generic-aware">android.text.SpannableStringInternal</attr>
+  <attr path="/api/package[@name='android.text']/class[@name='SpannedString']" name="extends">android.text.SpannableStringInternal</attr>
+  <attr path="/api/package[@name='android.text']/class[@name='SpannedString']" name="extends-generic-aware">android.text.SpannableStringInternal</attr>
+
 </metadata>
