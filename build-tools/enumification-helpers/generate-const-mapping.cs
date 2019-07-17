@@ -120,8 +120,8 @@ namespace MonoDroid.Tools
 						val,
 						string.IsNullOrEmpty (forceApiLevel) ? api : forceApiLevel);
 				}
-				} catch (Exception) {
-					Console.Error.WriteLine ("Error in {0} / {1} / {2}", pkg, type, enn);
+				} catch (Exception ex) {
+					Console.Error.WriteLine ("Error in {0} / {1} / {2} \n {3}", pkg, type, enn, ex);
 					throw;
 				}
 			}
