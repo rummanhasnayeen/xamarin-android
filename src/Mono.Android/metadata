@@ -1427,9 +1427,28 @@
 
   <!-- API Level 29 -->
   <!-- Google has removed SpannableStringInternal class so we need to fix it by adding it back -->
-  <attr path="/api/package[@name='android.text']/class[@name='SpannableString']" name="extends">android.text.SpannableStringInternal</attr>
-  <attr path="/api/package[@name='android.text']/class[@name='SpannableString']" name="extends-generic-aware">android.text.SpannableStringInternal</attr>
-  <attr path="/api/package[@name='android.text']/class[@name='SpannedString']" name="extends">android.text.SpannableStringInternal</attr>
-  <attr path="/api/package[@name='android.text']/class[@name='SpannedString']" name="extends-generic-aware">android.text.SpannableStringInternal</attr>
+  <attr api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableString']" name="extends">android.text.SpannableStringInternal</attr>
+  <attr api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableString']" name="extends-generic-aware">android.text.SpannableStringInternal</attr>
+  <attr api-since="29" path="/api/package[@name='android.text']/class[@name='SpannedString']" name="extends">android.text.SpannableStringInternal</attr>
+  <attr api-since="29" path="/api/package[@name='android.text']/class[@name='SpannedString']" name="extends-generic-aware">android.text.SpannableStringInternal</attr>
+
+  <remove-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableStringInternal']/method[@name='charAt' and count(parameter)=1 and parameter[1][@type='int']]" />
+  <remove-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableStringInternal']/method[@name='getChars' and count(parameter)=4 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='char[]'] and parameter[4][@type='int']]" />
+  <remove-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableStringInternal']/method[@name='length' and count(parameter)=0]" />
+  <remove-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableStringInternal']/method[@name='toString' and count(parameter)=0]" />
+
+  <add-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableStringInternal']">
+    <method abstract="true" deprecated="not deprecated" name="charAt" jni-signature="(I)C" bridge="false" native="false" return="char" jni-return="C" static="false" synchronized="false" synthetic="false" visibility="public">
+      <parameter name="i" type="int" jni-type="I"></parameter>
+    </method>
+    <method abstract="true" deprecated="not deprecated" name="getChars" jni-signature="(II[CI)V" bridge="false" native="false" return="void" jni-return="V" static="false" synchronized="false" synthetic="false" visibility="public">
+        <parameter name="start" type="int" jni-type="I"></parameter>
+        <parameter name="end" type="int" jni-type="I"></parameter>
+        <parameter name="dest" type="char[]" jni-type="[C"></parameter>
+        <parameter name="off" type="int" jni-type="I"></parameter>
+    </method>
+    <method abstract="true" deprecated="not deprecated" name="length" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+    <method abstract="true" deprecated="not deprecated" name="toString" jni-signature="()Ljava/lang/String;" bridge="false" native="false" return="java.lang.String" jni-return="Ljava/lang/String;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
+  </add-node>
 
 </metadata>
