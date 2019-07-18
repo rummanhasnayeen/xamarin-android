@@ -25,7 +25,7 @@ namespace Xamarin.Android.BuildTools.PrepTasks
 
 			using (var reader = new StreamReader (InputFilename)) {
 				string line;
-				var procIdentification = string.IsNullOrEmpty (Activity) ? $"added application {ApplicationPackageName}" : $"activity {Activity}";
+				var procIdentification = string.IsNullOrEmpty (Activity) ? $"added application {ApplicationPackageName}" : $"activity {{?{Activity}}}?";
 				var startIdentification = PID > 0 ? $".*: pid={PID}" : $@"{procIdentification}: pid=(?<pid>\d+)";
 				var procStartRegex = new Regex ($"{activityManagerPrefix}Start proc.*for {startIdentification}");
 				var startIdentification2 = PID > 0 ? $"{PID}:" : $@"(?<pid>\d+):.*{procIdentification}";
