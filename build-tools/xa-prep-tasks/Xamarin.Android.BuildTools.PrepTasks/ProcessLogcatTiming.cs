@@ -14,7 +14,7 @@ namespace Xamarin.Android.BuildTools.PrepTasks
 
 		public int PID { get; set; } = -1;
 
-		static readonly string activityManagerPrefix = @"^(?<timestamp>\d+-\d+\s+[\d:\.]+)\s+.*ActivityManager: ";
+		static readonly string activityManagerPrefix = @"^(?<timestamp>\d+-\d+\s+[\d:\.]+)\s+.*Activity(Task)??Manager: ";
 
 		public override bool Execute ()
 		{
