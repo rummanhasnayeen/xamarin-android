@@ -49,7 +49,7 @@
 [submodule "external/xamarin-android-api-compatibility"]
     path = external/xamarin-android-api-compatibility
     url = https://github.com/xamarin/xamarin-android-api-compatibility.git
-    branch = master
+    branch = gugavaro_api29
 [submodule "external/xamarin-android-tools"]
     path = external/xamarin-android-tools
     url = https://github.com/xamarin/xamarin-android-tools
