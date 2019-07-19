@@ -1426,18 +1426,50 @@
   <remove-node path="/api/package[@name='java.util.concurrent']/class[@name='ConcurrentHashMap.KeySetView']" />
 
   <!-- API Level 29 -->
-  <!-- Google has removed SpannableStringInternal class so we need to fix it by adding it back -->
+  <!-- Google has removed Android.Icu.Util.CECalendar class so we need to fix it by adding it back on the classes using it (Android.Icu.Util.CECalendar extends Android.Icu.Util.Calendar) -->
+  <!-- Fix Android.Icu.Util.CopticCalendar and Android.Icu.Util.EthiopicCalendar classes to extend Android.Icu.Util.CECalendar -->
+  <attr api-since="29" path="/api/package[@name='android.icu.util']/class[@name='CopticCalendar']" name="extends">android.icu.util.CECalendar</attr>
+  <attr api-since="29" path="/api/package[@name='android.icu.util']/class[@name='CopticCalendar']" name="extends-generic-aware">android.icu.util.CECalendar</attr>
+  <attr api-since="29" path="/api/package[@name='android.icu.util']/class[@name='EthiopicCalendar']" name="extends">android.icu.util.CECalendar</attr>
+  <attr api-since="29" path="/api/package[@name='android.icu.util']/class[@name='EthiopicCalendar']" name="extends-generic-aware">android.icu.util.CECalendar</attr>
+  <!-- Because all methods from Android.Icu.Util.CECalendar were added to Android.Icu.Util.Calendar, we can simply remove the methods from Android.Icu.Util.CECalendar -->
+  <remove-node api-since="29" path="/api/package[@name='android.icu.util']/class[@name='CECalendar']/method[@name='handleComputeMonthStart' and count(parameter)=3 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='boolean']]" />
+  <remove-node api-since="29" path="/api/package[@name='android.icu.util']/class[@name='CECalendar']/method[@name='handleGetLimit' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='int']]" />
+
+  <!-- Google has Modified base type of Android.Nfc.Tech.[IsoDep, MifareClassic, MifareUltralight, Ndef, NdefFormatable, NfcA, NfcB, NfcBarcode, NfcF and NfcV] from Android.Nfc.Tech.BasicTagTechnology to Java.Lang.Object so we need to fix it by adding it back -->
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='IsoDep']" name="extends">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='IsoDep']" name="extends-generic-aware">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='MifareClassic']" name="extends">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='MifareClassic']" name="extends-generic-aware">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='MifareUltralight']" name="extends">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='MifareUltralight']" name="extends-generic-aware">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='Ndef']" name="extends">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='Ndef']" name="extends-generic-aware">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='NdefFormatable']" name="extends">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='NdefFormatable']" name="extends-generic-aware">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='NfcA']" name="extends">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='NfcA']" name="extends-generic-aware">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='NfcB']" name="extends">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='NfcB']" name="extends-generic-aware">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='NfcBarcode']" name="extends">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='NfcBarcode']" name="extends-generic-aware">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='NfcF']" name="extends">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='NfcF']" name="extends-generic-aware">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='NfcV']" name="extends">android.nfc.tech.BasicTagTechnology</attr>
+  <attr api-since="29" path="/api/package[@name='android.nfc.tech']/class[@name='NfcV']" name="extends-generic-aware">android.nfc.tech.BasicTagTechnology</attr>
+  <!-- We don't need to remove any method from android.nfc.tech.BasicTagTechnology because they are all virtual methods -->
+
+  <!-- Google has removed Android.Text.SpannableStringInternal class so we need to fix it by adding it back -->
+  <!-- Google has Modified base type of Android.Text.SpannableString and Android.Text.SpannedString from Android.Text.SpannableStringInternal to Java.Lang.Object so we need to fix it by adding it back -->
   <attr api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableString']" name="extends">android.text.SpannableStringInternal</attr>
   <attr api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableString']" name="extends-generic-aware">android.text.SpannableStringInternal</attr>
   <attr api-since="29" path="/api/package[@name='android.text']/class[@name='SpannedString']" name="extends">android.text.SpannableStringInternal</attr>
   <attr api-since="29" path="/api/package[@name='android.text']/class[@name='SpannedString']" name="extends-generic-aware">android.text.SpannableStringInternal</attr>
-
-  <!-- Remove all methods from SpannableStringInternal and re-add it as abstract methods -->
+  <!-- All methods from SpannableStringInternal were final and now they are added directly on derrived class. Because of that we need to remove the methods from SpannableStringInternal and re-add it as abstract methods -->
   <remove-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableStringInternal']/method[@name='charAt' and count(parameter)=1 and parameter[1][@type='int']]" />
   <remove-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableStringInternal']/method[@name='getChars' and count(parameter)=4 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='char[]'] and parameter[4][@type='int']]" />
   <remove-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableStringInternal']/method[@name='length' and count(parameter)=0]" />
   <remove-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableStringInternal']/method[@name='toString' and count(parameter)=0]" />
-
   <add-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannableStringInternal']">
     <method abstract="true" deprecated="not deprecated" name="charAt" jni-signature="(I)C" bridge="false" native="false" return="char" jni-return="C" static="false" synchronized="false" synthetic="false" visibility="public">
       <parameter name="i" type="int" jni-type="I"></parameter>
@@ -1451,13 +1483,11 @@
     <method abstract="true" deprecated="not deprecated" name="length" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
     <method abstract="true" deprecated="not deprecated" name="toString" jni-signature="()Ljava/lang/String;" bridge="false" native="false" return="java.lang.String" jni-return="Ljava/lang/String;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
   </add-node>
-
-  <!-- Remove all SpannableStringInternal methods from SpannedString class and re-add it as non final methods -->
+  <!-- SpannedString class did not sealed SpannableStringInternal methods, we need to remove all SpannableStringInternal methods from SpannedString class and re-add it as non final methods -->
   <remove-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannedString']/method[@name='charAt' and count(parameter)=1 and parameter[1][@type='int']]" />
   <remove-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannedString']/method[@name='getChars' and count(parameter)=4 and parameter[1][@type='int'] and parameter[2][@type='int'] and parameter[3][@type='char[]'] and parameter[4][@type='int']]" />
   <remove-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannedString']/method[@name='length' and count(parameter)=0]" />
   <remove-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannedString']/method[@name='toString' and count(parameter)=0]" />
-
   <add-node api-since="29" path="/api/package[@name='android.text']/class[@name='SpannedString']">
     <method abstract="false" deprecated="not deprecated" final="false" name="charAt" jni-signature="(I)C" bridge="false" native="false" return="char" jni-return="C" static="false" synchronized="false" synthetic="false" visibility="public">
       <parameter name="i" type="int" jni-type="I"></parameter>
@@ -1471,5 +1501,17 @@
     <method abstract="false" deprecated="not deprecated" final="false" name="length" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public"></method>
     <method abstract="false" deprecated="not deprecated" final="false" name="toString" jni-signature="()Ljava/lang/String;" bridge="false" native="false" return="java.lang.String" jni-return="Ljava/lang/String;" static="false" synchronized="false" synthetic="false" visibility="public"></method>
   </add-node>
+
+  <!-- Google has Modified base type of Android.Webkit.CookieSyncManager from Android.Webkit.WebSyncManager to Java.Lang.Object so we need to fix it by adding it back -->
+  <attr api-since="29" path="/api/package[@name='android.webkit']/class[@name='CookieSyncManager']" name="extends">android.webkit.WebSyncManager</attr>
+  <attr api-since="29" path="/api/package[@name='android.webkit']/class[@name='CookieSyncManager']" name="extends-generic-aware">android.webkit.WebSyncManager</attr>
+  <!-- We don't need to remove any method from android.webkit.WebSyncManager because they are all virtual methods -->
+
+  <!-- Google has Modified base type of Java.Lang.StringBuffer and Java.Lang.StringBuilder from Java.Lang.AbstractStringBuilder to Java.Lang.Object so we need to fix it by adding it back -->
+  <attr api-since="29" path="/api/package[@name='java.lang']/class[@name='StringBuffer']" name="extends">java.lang.AbstractStringBuilder</attr>
+  <attr api-since="29" path="/api/package[@name='java.lang']/class[@name='StringBuffer']" name="extends-generic-aware">java.lang.AbstractStringBuilder</attr>
+  <attr api-since="29" path="/api/package[@name='java.lang']/class[@name='StringBuilder']" name="extends">java.lang.AbstractStringBuilder</attr>
+  <attr api-since="29" path="/api/package[@name='java.lang']/class[@name='StringBuilder']" name="extends-generic-aware">java.lang.AbstractStringBuilder</attr>
+  <!-- We don't need to remove any method from java.lang.AbstractStringBuilder because they are all virtual methods -->
 
 </metadata>
