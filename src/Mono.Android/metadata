@@ -1512,6 +1512,28 @@
   <attr api-since="29" path="/api/package[@name='java.lang']/class[@name='StringBuffer']" name="extends-generic-aware">java.lang.AbstractStringBuilder</attr>
   <attr api-since="29" path="/api/package[@name='java.lang']/class[@name='StringBuilder']" name="extends">java.lang.AbstractStringBuilder</attr>
   <attr api-since="29" path="/api/package[@name='java.lang']/class[@name='StringBuilder']" name="extends-generic-aware">java.lang.AbstractStringBuilder</attr>
-  <!-- We don't need to remove any method from java.lang.AbstractStringBuilder because they are all virtual methods -->
-
+  <!-- Methods from java.lang.AbstractStringBuilder were virtual but now they are added directly on derrived class, we need to remove then and re add it as abstract methods -->
+  <remove-node api-since="29" path="/api/package[@name='java.lang']/class[@name='AbstractStringBuilder']/method[@name='append' and count(parameter)=1 and parameter[1][@type='java.lang.CharSequence']]" />
+  <remove-node api-since="29" path="/api/package[@name='java.lang']/class[@name='AbstractStringBuilder']/method[@name='append' and count(parameter)=1 and parameter[1][@type='char']]" />
+  <remove-node api-since="29" path="/api/package[@name='java.lang']/class[@name='AbstractStringBuilder']/method[@name='append' and count(parameter)=3 and parameter[1][@type='java.lang.CharSequence'] and parameter[2][@type='int'] and parameter[3][@type='int']]" />
+  <remove-node api-since="29" path="/api/package[@name='java.lang']/class[@name='AbstractStringBuilder']/method[@name='charAt' and count(parameter)=1 and parameter[1][@type='int']]" />
+  <remove-node api-since="29" path="/api/package[@name='java.lang']/class[@name='AbstractStringBuilder']/method[@name='length' and count(parameter)=0]" />
+  <remove-node api-since="29" path="/api/package[@name='java.lang']/class[@name='AbstractStringBuilder']/method[@name='subSequence' and count(parameter)=2 and parameter[1][@type='int'] and parameter[2][@type='int']]" />
+  <add-node api-since="29" path="/api/package[@name='java.lang']/class[@name='AbstractStringBuilder']">
+    <method abstract="true" deprecated="not deprecated" final="false" name="append" jni-signature="(C)Ljava/lang/AbstractStringBuilder;" bridge="false" native="false" return="java.lang.Object" jni-return="Ljava/lang/AbstractStringBuilder;" static="false" synchronized="false" synthetic="false" visibility="public" merge.SourceFile="../../bin/BuildDebug/api/api-26.xml.in">
+      <parameter name="c" type="char" jni-type="C"></parameter>
+    </method>
+    <method abstract="true" deprecated="not deprecated" final="false" name="append" jni-signature="(Ljava/lang/CharSequence;)Ljava/lang/AbstractStringBuilder;" bridge="false" native="false" return="java.lang.Object" jni-return="Ljava/lang/AbstractStringBuilder;" static="false" synchronized="false" synthetic="false" visibility="public" merge.SourceFile="../../bin/BuildDebug/api/api-26.xml.in">
+      <parameter name="s" type="java.lang.CharSequence" jni-type="Ljava/lang/CharSequence;"></parameter>
+    </method>
+    <method abstract="true" deprecated="not deprecated" final="false" name="append" jni-signature="(Ljava/lang/CharSequence;II)Ljava/lang/AbstractStringBuilder;" bridge="false" native="false" return="java.lang.Object" jni-return="Ljava/lang/AbstractStringBuilder;" static="false" synchronized="false" synthetic="false" visibility="public" merge.SourceFile="../../bin/BuildDebug/api/api-26.xml.in">
+      <parameter name="s" type="java.lang.CharSequence" jni-type="Ljava/lang/CharSequence;"></parameter>
+      <parameter name="start" type="int" jni-type="I"></parameter>
+      <parameter name="end" type="int" jni-type="I"></parameter>
+    </method>
+    <method abstract="true" deprecated="not deprecated" final="false" name="charAt" jni-signature="(I)C" bridge="false" native="false" return="char" jni-return="C" static="false" synchronized="false" synthetic="false" visibility="public">
+      <parameter name="index" type="int" jni-type="I"></parameter>
+    </method>
+    <method abstract="false" deprecated="not deprecated" final="false" name="length" jni-signature="()I" bridge="false" native="false" return="int" jni-return="I" static="false" synchronized="false" synthetic="false" visibility="public" />
+  </add-node>
 </metadata>
