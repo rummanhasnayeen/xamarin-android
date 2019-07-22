@@ -1426,6 +1426,13 @@
   <remove-node path="/api/package[@name='java.util.concurrent']/class[@name='ConcurrentHashMap.KeySetView']" />
 
   <!-- API Level 29 -->
+  <!-- Google has Modified base type of Android.App.Backup.FileBackupHelper and Android.App.Backup.SharedPreferencesBackupHelper from Android.App.Backup.FileBackupHelperBase to Java.Lang.Object so we need to fix it by adding it back -->
+  <attr api-since="29" path="/api/package[@name='android.app.backup']/class[@name='FileBackupHelper']" name="extends">android.app.backup.FileBackupHelperBase</attr>
+  <attr api-since="29" path="/api/package[@name='android.app.backup']/class[@name='FileBackupHelper']" name="extends-generic-aware">android.app.backup.FileBackupHelperBase</attr>
+  <attr api-since="29" path="/api/package[@name='android.app.backup']/class[@name='SharedPreferencesBackupHelper']" name="extends">android.app.backup.FileBackupHelperBase</attr>
+  <attr api-since="29" path="/api/package[@name='android.app.backup']/class[@name='SharedPreferencesBackupHelper']" name="extends-generic-aware">android.app.backup.FileBackupHelperBase</attr>
+  <!-- We don't need to remove any method from android.app.backup.FileBackupHelperBase because they are all virtual methods -->
+
   <!-- Google has removed Android.Icu.Util.CECalendar class so we need to fix it by adding it back on the classes using it (Android.Icu.Util.CECalendar extends Android.Icu.Util.Calendar) -->
   <!-- Fix Android.Icu.Util.CopticCalendar and Android.Icu.Util.EthiopicCalendar classes to extend Android.Icu.Util.CECalendar -->
   <attr api-since="29" path="/api/package[@name='android.icu.util']/class[@name='CopticCalendar']" name="extends">android.icu.util.CECalendar</attr>
